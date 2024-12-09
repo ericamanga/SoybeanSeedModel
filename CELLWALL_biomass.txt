@@ -1,0 +1,9 @@
+UDP_c <=> CPD-12513_c	CELLWALL1_biomass				
+GDP_c <=> CPD-13118_c	CELLWALL2_biomass				
+UDP_c <=> CPD-14553_c	CELLWALL3_biomass				
+GDP_c <=> GDP-MANNOSE_c	CELLWALL4_biomass				
+UDP_c <=> UDP-D-GALACTURONATE_c	CELLWALL5_biomass				
+UDP_c <=> UDP-D-XYLOSE_c	CELLWALL6_biomass				
+UDP_c <=> UDP-GLUCOSE_c	CELLWALL7_biomass				
+UDP_c <=> UDP-L-RHAMNOSE_c	CELLWALL8_biomass				
+
