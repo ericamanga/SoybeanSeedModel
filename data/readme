@@ -1,8 +1,8 @@
 This directory contains data files used to run FBA of SoybeanSeedModel.
-Here are the description of each one:
+Here are the description of each directory:
 
 --------------------------------------- mat ---------------------------------------
-Contains 16 files as *.mat format, thus they can be opened into MATLAB directely.
+Contains 16 files as *.mat format, thus they can be opened into MATLAB directly.
 
 --------------------------------------- photon0_mean_median ---------------------------------------
 Contains 56 files that were run for NADPH, NADH, and ATP for every 8 different biomass compositions.
