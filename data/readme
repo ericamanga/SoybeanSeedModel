@@ -1,1 +1,21 @@
+This directory contains data files used to run FBA of SoybeanSeedModel.
+Here are the description of each one:
 
+--------------------------------------- mat ---------------------------------------
+Contains 16 files as *.mat format, thus they can be opened into MATLAB directely.
+
+--------------------------------------- photon0_mean_median ---------------------------------------
+Contains 56 files that were run for NADPH, NADH, and ATP for every 8 different biomass compositions.
+There was no photon uptake (Photon0).
+The 70-82DAP condition was named as C1-C2 files, and 82-97DAP named as C2-C3 files.
+The files _toSampl exhibit the outputs file ran with the Random Sampling approach.
+
+--------------------------------------- photon_mean_median ---------------------------------------
+Contains 56 files that were run for NADPH, NADH, and ATP for every 8 different biomass compositions.
+There was photon uptake.
+The 70-82DAP condition was named as C1-C2 files, and 82-97DAP named as C2-C3 files.
+The files _toSampl exhibit the outputs file ran with the Random Sampling approach.
+
+--------------------------------------- templateModels---------------------------------------
+Contains 6 files that were used as either as input or as output to run FBA.
+The format files are .xml, .yml, or .csv.
