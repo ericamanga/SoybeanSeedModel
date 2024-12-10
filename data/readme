@@ -23,5 +23,5 @@ were used as either as input or as output to run FBA.
 The format files are .xml, .yml, or .csv.
 
 --------------------------------------- templateModels ---------------------------------------
-Contains 6 files that were used as either as input or as output to run FBA.
+Contains 6 files that were used as either input or output to run FBA.
 The format files are .xml, .yml, or .csv.
