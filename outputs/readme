@@ -1,1 +1,49 @@
+This directory contains all raw output files. Here are the description of each one:
+
+--------------------------------------- FBA_photon ---------------------------------------
+Contains 16 files that were run for 8 different biomass compositions and with photon uptake varying as follows:
+  70-82DAP named as C1-C2 files
+WR1	Photon_tx = 0.0096
+WR2	Photon_tx = 0.0346
+WR3	Photon_tx = 0.0480
+WR4	Photon_tx = 0.0590
+  82-97DAP named as C2-C3 files
+WR1	Photon_tx = 0.0636
+WR2	Photon_tx = 0.1248
+WR3	Photon_tx = 0.1576
+WR4	Photon_tx = 0.1256
+The files _toSampl exhibit the constrains used in the Random Sampling approach.
+
+--------------------------------------- FBA_photon0 ---------------------------------------
+Contains 16 files that were run for 8 different biomass compositions without photon uptake (Photon_0_).
+Similarly, 70-82DAP condition was named as C1-C2 files, and 82-97DAP named as C2-C3 files.
+The files _toSampl exhibit the constrains used in the Random Sampling approach.
+
+--------------------------------------- FBA_best_photon ---------------------------------------
+Contains 48 files that were run for 8 different biomass compositions.
+Six different photon uptake were used for each biomass:
+70-82DAP named as C1-C2 files
+WR1	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR2	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR3	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR4	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+ 82-97DAP named as C2-C3 files
+WR1	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR2	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR3	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+WR4	Photon_tx = 0.0125  /  = 0.025  /  = 0.05  /  = 0.10  /  = 0.15  /  = 0.20
+
+--------------------------------------- FBA_calvin---------------------------------------
+Contains 120 files that were run for 8 different biomass compositions.
+Fifteen different photon uptake were used for each biomass:
+70-82DAP named as C1-C2 files
+WR1	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR2	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR3	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR4	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+ 82-97DAP named as C2-C3 files
+WR1	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR2	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR3	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
+WR4	Photon_tx = 0.01  /  = 0.02  /  = 0.03  […]  = 0.13  /  = 0.14  /  = 0.15
 
