@@ -14,8 +14,14 @@ The files _toSampl exhibit the outputs file ran with the Random Sampling approac
 Contains 56 files that were run for NADPH, NADH, and ATP for every 8 different biomass compositions.
 There was photon uptake.
 The 70-82DAP condition was named as C1-C2 files, and 82-97DAP named as C2-C3 files.
-The files _toSampl exhibit the outputs file ran with the Random Sampling approach.
+The files _toSampl exhibit the outputs file ran with the Random Sampling analysis.
 
---------------------------------------- templateModels---------------------------------------
+--------------------------------------- results_perCarbon ---------------------------------------
+Contains 16 files, 8 with and 8 without photon uptake, where it was calculated,
+from Random Sampling analysis, each flux per Carbon uptaken 
+were used as either as input or as output to run FBA.
+The format files are .xml, .yml, or .csv.
+
+--------------------------------------- templateModels ---------------------------------------
 Contains 6 files that were used as either as input or as output to run FBA.
 The format files are .xml, .yml, or .csv.
