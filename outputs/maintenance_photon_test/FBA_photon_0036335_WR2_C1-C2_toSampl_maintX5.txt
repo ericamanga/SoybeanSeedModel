@@ -1,0 +1,21 @@
+EXCHANGE FLUXES:
+Arachidate_biomass	(Arachidate_biomass):	-3.2881e-06
+CO2_tx	(CO2_tx):	-0.013772
+Glycerol_biomass	(Glycerol_biomass):	-0.00028799
+H2O_tx	(H2O_tx):	-0.02026
+Linoleate_biomass	(Linoleate_biomass):	-0.00035836
+Linolenate_biomass	(Linolenate_biomass):	-0.00010296
+Myristate_biomass	(Myristate_biomass):	-1.711e-07
+O2_tx	(O2_tx):	0.0055107
+Oleate_biomass	(Oleate_biomass):	-0.00020708
+PROTON_tx	(PROTON_tx):	0.012009
+Palmitate_biomass	(Palmitate_biomass):	-0.00014947
+Photon_tx	(Photon_tx):	0.036335
+Raffinose_biomass	(Raffinose_biomass):	-2.5423e-06
+Starch_biomass	(Starch_biomass):	-0.0011531
+Stearate_biomass	(Stearate_biomass):	-4.2623e-05
+sFRU_biomass	(sFRU_biomass):	-9.6664e-05
+sGLC_biomass	(sGLC_biomass):	-6.1786e-05
+sSUCROSE_biomass	(sSUCROSE_biomass):	-0.00044332
+GLN_tx	(GLN_tx):	0.0034943
+CELLWALL_biomass	(CELLWALL_biomass):	-0.00374

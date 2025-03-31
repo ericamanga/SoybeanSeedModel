@@ -54,8 +54,7 @@ model = rmfield(model,'rules'); % Not essential to do this, but cleanest to just
 model.grRules(1:10)
 
 % Saving and exporting the updated model
-save
-load([data '/mat/SoyGEM_correctGeneID.mat'],'model')
+save([data '/mat/SoyGEM_correctGeneID.mat'],'model')
 exportToExcelFormat(model, [root '/scrap/SoyGEM_correctGeneID.xlsx']);
 
 % Because of the large size of the model (particularly the large number of

@@ -26,7 +26,7 @@ load([data '/mat/SoyGEM_correctGeneID.mat'],'model');
 % then remove all of them:
 size(model.rxns) % = 3001
 modeltmp = removeReactions(model,RxnsToRmvSoy,true, true, true);
-size(modeltmp.rxns) % = 2949
+size(modeltmp.rxns) % = 2947
 
 %% keeping only one of each duplicated rxns and only the corrected one:
 % 2nd: adding rxns-> one of each duplicated and deleted before; missing rxns;
@@ -42,7 +42,7 @@ rxnsToAdd.subSystems    = regexprep(loadedData{4},'***','');
 rxnsToAdd.eccodes       = regexprep(loadedData{5},'***','');
 rxnsToAdd.rxns          = rxnsToAdd.rxnNames;
 
-size(modeltmp.rxns) % = 2949
+size(modeltmp.rxns) % = 2947
 modeltmp2 = addRxns(modeltmp,rxnsToAdd,3,'',true,true);
 size(modeltmp2.rxns) % = 2984
 model = modeltmp2;
@@ -55,14 +55,25 @@ model.rxnNames(emptyNames)=model.rxns(emptyNames);
 model = setParam(model, 'ub', 'HYDROXYPYRUVATE_REDUCTASE_RXN_NADP_c',0);
 model = setParam(model, 'lb', 'HYDROXYPYRUVATE_REDUCTASE_RXN_NADP_c',-1000);
 
-% Standardize NADPH name from plastid and mitochondria
+% Standardize NADPH and NADP name from plastid and mitochondria
 % Replace NADPH_p with NADPH, and replace NADPH_m with NADPH
-model.mets = regexprep(model.mets,'NADPH_p','NADPH'); 
-model.mets = regexprep(model.mets,'NADPH_m','NADPH'); 
-model.metNames=regexprep(model.metNames,'NADPH_p','NADPH');
-model.metNames=regexprep(model.metNames,'NADPH_m','NADPH');
-model.grRules = regexprep(model.grRules,'NADPH_p','NADPH'); 
-model.grRules = regexprep(model.grRules,'NADPH_m','NADPH'); 
+% model.mets = regexprep(model.mets,'NADPH_p','NADPH'); 
+% model.mets = regexprep(model.mets,'NADPH_m','NADPH'); 
+% model.metNames = regexprep(model.metNames,'NADPH_p','NADPH');
+% model.metNames = regexprep(model.metNames,'NADPH_m','NADPH');
+% model.grRules = regexprep(model.grRules,'NADPH_p','NADPH'); 
+% model.grRules = regexprep(model.grRules,'NADPH_m','NADPH');
+% 
+% model.mets = regexprep(model.mets,'NADP_p','NADP+'); 
+% model.mets = regexprep(model.mets,'NADP_m','NADP+'); 
+% model.mets = regexprep(model.mets,'NAD_c','NAD+'); 
+% model.metNames = regexprep(model.metNames,'NADP_p','NADP+');
+% model.metNames = regexprep(model.metNames,'NADP_m','NADP+');
+% model.metNames = regexprep(model.metNames,'NAD_c','NAD+');
+% model.grRules = regexprep(model.grRules,'NADP_p','NADP+'); 
+% model.grRules = regexprep(model.grRules,'NADP_m','NADP+'); 
+% model.grRules = regexprep(model.grRules,'NAD_c','NAD+'); 
+
 
 % check and saving model
 save([data '/mat/soybeanSeedModel.mat'],'model')

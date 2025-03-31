@@ -14,8 +14,8 @@ code = [root '/code/'];
 cd(data)
 
 % Setting Raven solver
-% setRavenSolver('gurobi')
 % getpref('RAVEN','solver')
+% setRavenSolver('gurobi')
 
 
 %% Running FBA and pFBA with the soymodel specific to seed(embryo)model
@@ -120,25 +120,25 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling 
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-7.7928e-07,10);
-model = setParam(model, 'var','CO2_tx',-0.005849,10);
-model = setParam(model, 'var','Glycerol_biomass',-7.5491e-05,10);
-model = setParam(model, 'var','H2O_tx',-0.0079088,10);
+model = setParam(model, 'var','CO2_tx',-0.0063598,10);
+model = setParam(model, 'var','Glycerol_biomass',-7.5054e-05,10);
+model = setParam(model, 'var','H2O_tx',-0.0086985,10);
 model = setParam(model, 'var','Linoleate_biomass',-9.5098e-05,10);
 model = setParam(model, 'var','Linolenate_biomass',-3.9044e-05,10);
 model = setParam(model, 'var','Myristate_biomass',-6.0377e-08,10);
-model = setParam(model, 'var','O2_tx',0.0036154,10);
+model = setParam(model, 'var','O2_tx',0.0040308,10);
 model = setParam(model, 'var','Oleate_biomass',-4.1153e-05,10);
-model = setParam(model, 'var','PROTON_tx',0.0038257,10);
+model = setParam(model, 'var','PROTON_tx',0.0044822,10);
 model = setParam(model, 'var','Palmitate_biomass',-3.9609e-05,10);
 model = setParam(model, 'var','Raffinose_biomass',-3.9432e-06,10);
 model = setParam(model, 'var','Stachyose_biomass',-5.5356e-06,10);
-model = setParam(model, 'var','Starch_biomass',-0.0004561,10);
+model = setParam(model, 'var','Starch_biomass',-0.00041049,10);
 model = setParam(model, 'var','Stearate_biomass',-9.4174e-06,10);
 model = setParam(model, 'var','sFRU_biomass',-4.1257e-05,10);
 model = setParam(model, 'var','sGLC_biomass',-2.5783e-05,10);
 model = setParam(model, 'var','sSUCROSE_biomass',-0.00014212,10);
-model = setParam(model, 'var','GLN_tx',0.0010959,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0012329,10);
+model = setParam(model, 'var','GLN_tx',0.0012609,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.0014216,10);
 
 % Running Sampling with RAVEN
 goodRxns = [];
@@ -217,8 +217,13 @@ for i={'NADPH'}
     outNADPH_median.fluxes  = num2cell(fluxes);
     outNADPH_median = [outNADPH_median.rxns outNADPH_median.rxnNames outNADPH_median.rxnEqns outNADPH_median.fluxes];
 end
-writecell(outNADPH_median,'photon0_wr1_C1-C2_NADPH_median.xls');
+writecell(outNADPH_median,'photon0_wr1_C1-C2_NADPH_median_test.xls');
 
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR1_C1-C2_FVA.csv');
 
 %% >>>>> For ΔC1-C2 in treatment WR 2 (x 1000)
 clear; % clean workspace
@@ -318,24 +323,24 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling 
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-3.2881e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.017824,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00028972,10);
-model = setParam(model, 'var','H2O_tx',-0.023097,10);
+model = setParam(model, 'var','CO2_tx',-0.01923,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00028799,10);
+model = setParam(model, 'var','H2O_tx',-0.025264,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00035836,10);
 model = setParam(model, 'var','Linolenate_biomass',-0.00010296,10);
 model = setParam(model, 'var','Myristate_biomass',-1.711e-07,10);
-model = setParam(model, 'var','O2_tx',0.0098289,10);
+model = setParam(model, 'var','O2_tx',0.01097,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00020708,10);
-model = setParam(model, 'var','PROTON_tx',0.010206,10);
+model = setParam(model, 'var','PROTON_tx',0.012009,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.00014947,10);
 model = setParam(model, 'var','Raffinose_biomass',-2.5423e-06,10);
-model = setParam(model, 'var','Starch_biomass',-0.0012812,10);
+model = setParam(model, 'var','Starch_biomass',-0.0011531,10);
 model = setParam(model, 'var','Stearate_biomass',-4.2623e-05,10);
 model = setParam(model, 'var','sFRU_biomass',-9.6664e-05,10);
 model = setParam(model, 'var','sGLC_biomass',-6.1786e-05,10);
 model = setParam(model, 'var','sSUCROSE_biomass',-0.00044332,10);
-model = setParam(model, 'var','GLN_tx',0.0030373,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0032362,10);
+model = setParam(model, 'var','GLN_tx',0.0034943,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.00374,10);
 
 % Running Sampling with RAVEN
 goodRxns = [];
@@ -415,6 +420,13 @@ for i={'NADPH'}
     outNADPH_median = [outNADPH_median.rxns outNADPH_median.rxnNames outNADPH_median.rxnEqns outNADPH_median.fluxes];
 end
 writecell(outNADPH_median,'photon0_wr2_C1-C2_NADPH_median.xls');
+
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR2_C1-C2_FVA.csv');
+
 
 %% >>>>> For ΔC1-C2 in treatment WR 3 (x 1000)
 clear; % clean workspace
@@ -511,27 +523,28 @@ ResultsFlx = getIndexes(model,ListOfRxnFlxs,'rxns');
 sol.x(ResultsFlx)
 cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 
+
 %% Running sampling
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-5.719e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.029434,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00039641,10);
-model = setParam(model, 'var','H2O_tx',-0.039527,10);
+model = setParam(model, 'var','CO2_tx',-0.031969,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00039358,10);
+model = setParam(model, 'var','H2O_tx',-0.043467,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00043201,10);
 model = setParam(model, 'var','Linolenate_biomass',-8.8513e-05,10);
 model = setParam(model, 'var','Myristate_biomass',-3.0714e-07,10);
-model = setParam(model, 'var','O2_tx',0.017794,10);
+model = setParam(model, 'var','O2_tx',0.019865,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00036444,10);
-model = setParam(model, 'var','PROTON_tx',0.019111,10);
+model = setParam(model, 'var','PROTON_tx',0.022402,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.00022167,10);
 model = setParam(model, 'var','Raffinose_biomass',-1.1359e-05,10);
-model = setParam(model, 'var','Starch_biomass',-0.0024534,10);
+model = setParam(model, 'var','Starch_biomass',-0.0022081,10);
 model = setParam(model, 'var','Stearate_biomass',-6.8068e-05,10);
 model = setParam(model, 'var','sFRU_biomass',-0.00015148,10);
 model = setParam(model, 'var','sGLC_biomass',-0.00011493,10);
 model = setParam(model, 'var','sSUCROSE_biomass',-0.00073554,10);
-model = setParam(model, 'var','GLN_tx',0.0054016,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0064541,10);
+model = setParam(model, 'var','GLN_tx',0.0062145,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.0074485,10);
 
 % Running Sampling with RAVEN
 goodRxns = [];
@@ -611,6 +624,13 @@ for i={'NADPH'}
     outNADPH_median = [outNADPH_median.rxns outNADPH_median.rxnNames outNADPH_median.rxnEqns outNADPH_median.fluxes];
 end
 writecell(outNADPH_median,'photon0_wr3_C1-C2_NADPH_median.xls');
+
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR3_C1-C2_FVA.csv');
+
 
 %% >>>>> For ΔC1-C2 in treatment WR 4 (x 1000)
 clear; % clean workspace
@@ -713,24 +733,25 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-7.2845e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.032402,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00048237,10);
-model = setParam(model, 'var','H2O_tx',-0.042928,10);
+model = setParam(model, 'var','CO2_tx',-0.035164,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00047878,10);
+model = setParam(model, 'var','H2O_tx',-0.047203,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00053685,10);
 model = setParam(model, 'var','Linolenate_biomass',-9.6743e-05,10);
 model = setParam(model, 'var','Myristate_biomass',-3.2293e-07,10);
-model = setParam(model, 'var','O2_tx',0.018581,10);
+model = setParam(model, 'var','O2_tx',0.02083,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00045974,10);
-model = setParam(model, 'var','PROTON_tx',0.020574,10);
+model = setParam(model, 'var','PROTON_tx',0.024099,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.00025269,10);
 model = setParam(model, 'var','Raffinose_biomass',-1.0234e-05,10);
-model = setParam(model, 'var','Starch_biomass',-0.0020904,10);
+model = setParam(model, 'var','Starch_biomass',-0.0018813,10);
 model = setParam(model, 'var','Stearate_biomass',-8.2698e-05,10);
 model = setParam(model, 'var','sFRU_biomass',-0.00012202,10);
 model = setParam(model, 'var','sGLC_biomass',-0.00012883,10);
 model = setParam(model, 'var','sSUCROSE_biomass',-0.00069067,10);
-model = setParam(model, 'var','GLN_tx',0.0058966,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0068832,10);
+model = setParam(model, 'var','GLN_tx',0.0067839,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.0078891,10);
+
 
 % Running Sampling with RAVEN
 goodRxns = []; 
@@ -810,6 +831,13 @@ for i={'NADPH'}
     outNADPH_median = [outNADPH_median.rxns outNADPH_median.rxnNames outNADPH_median.rxnEqns outNADPH_median.fluxes];
 end
 writecell(outNADPH_median,'photon0_wr4_C1-C2_NADPH_median.xls');
+
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR4_C1-C2_FVA.csv');
+
 
 %% >>>>> For ΔC2-C3 in treatment WR 1 (x 1000)
 clear; % clean workspace
@@ -910,25 +938,25 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-5.1193e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.024464,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00039955,10);
-model = setParam(model, 'var','H2O_tx',-0.030273,10);
+model = setParam(model, 'var','CO2_tx',-0.026137,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00039717,10);
+model = setParam(model, 'var','H2O_tx',-0.032845,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00051034,10);
 model = setParam(model, 'var','Linolenate_biomass',-0.00010418,10);
 model = setParam(model, 'var','Myristate_biomass',-1.9923e-07,10);
-model = setParam(model, 'var','O2_tx',0.0137,10);
+model = setParam(model, 'var','O2_tx',0.015054,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00033052,10);
-model = setParam(model, 'var','PROTON_tx',0.011953,10);
+model = setParam(model, 'var','PROTON_tx',0.014074,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.00016865,10);
 model = setParam(model, 'var','Raffinose_biomass',3.3073e-06,10);
 model = setParam(model, 'var','Stachyose_biomass',4.4285e-06,10);
-model = setParam(model, 'var','Starch_biomass',-0.0012895,10);
+model = setParam(model, 'var','Starch_biomass',-0.0011606,10);
 model = setParam(model, 'var','Stearate_biomass',-7.2506e-05,10);
 model = setParam(model, 'var','sFRU_biomass',-1.0749e-05,10);
 model = setParam(model, 'var','sGLC_biomass',-3.6789e-05,10);
 model = setParam(model, 'var','sSUCROSE_biomass',-0.00047488,10);
-model = setParam(model, 'var','GLN_tx',0.0036148,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0038158,10);
+model = setParam(model, 'var','GLN_tx',0.0041587,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.004387,10);
 
 % Running Sampling with RAVEN
 goodRxns = []; 
@@ -1010,6 +1038,11 @@ for i={'NADPH'}
 end
 writecell(outNADPH_median,'photon0_wr1_C2-C3_NADPH_median.xls');
 
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR1_C2-C3_FVA.csv');
 
 %% >>>>> For ΔC2-C3 in treatment WR 2 (x 1000)
 clear; % clean workspace
@@ -1110,25 +1143,25 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling 
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-8.1667e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.035362,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00056949,10);
-model = setParam(model, 'var','H2O_tx',-0.041782,10);
+model = setParam(model, 'var','CO2_tx',-0.037576,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00056549,10);
+model = setParam(model, 'var','H2O_tx',-0.045097,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00079474,10);
 model = setParam(model, 'var','Linolenate_biomass',-0.00014081,10);
 model = setParam(model, 'var','Myristate_biomass',-2.2269e-07,10);
-model = setParam(model, 'var','O2_tx',0.020226,10);
+model = setParam(model, 'var','O2_tx',0.021999,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00039962,10);
-model = setParam(model, 'var','PROTON_tx',0.015044,10);
+model = setParam(model, 'var','PROTON_tx',0.017648,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.000257,10);
 model = setParam(model, 'var','Raffinose_biomass',-4.9877e-05,10);
 model = setParam(model, 'var','Stachyose_biomass',-9.4274e-05,10);
-model = setParam(model, 'var','Starch_biomass',-0.00031033,10);
+model = setParam(model, 'var','Starch_biomass',-0.00027929,10);
 model = setParam(model, 'var','Stearate_biomass',-9.59e-05,10);
 model = setParam(model, 'var','sFRU_biomass',1.8129e-05,10);
-model = setParam(model, 'var','sGLC_biomass',1.1418e-05,10);
-model = setParam(model, 'var','sSUCROSE_biomass',8.2874e-05,10);
-model = setParam(model, 'var','GLN_tx',0.0047621,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.0043602,10); 
+model = setParam(model, 'var','sGLC_biomass',-1.1418e-05,10);
+model = setParam(model, 'var','sSUCROSE_biomass',-8.2874e-05,10);
+model = setParam(model, 'var','GLN_tx',0.0054787,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.0048922,10);
 
 % Running Sampling with RAVEN
 goodRxns = [];
@@ -1209,7 +1242,11 @@ for i={'NADPH'}
 end
 writecell(outNADPH_median,'photon0_wr2_C2-C3_NADPH_median.xls');
 
-
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR2_C2-C3_FVA.csv');
 
 %% >>>>> For ΔC2-C3 in treatment WR 3 (x 1000)
 clear; % clean workspace
@@ -1309,26 +1346,26 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling 
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-4.7529e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.02944,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00050286,10);
-model = setParam(model, 'var','H2O_tx',-0.029047,10);
+model = setParam(model, 'var','CO2_tx',-0.030144,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00049954,10);
+model = setParam(model, 'var','H2O_tx',-0.030072,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00077149,10);
 model = setParam(model, 'var','Linolenate_biomass',-0.00015391,10);
 model = setParam(model, 'var','Myristate_biomass',-6.9974e-08,10);
-model = setParam(model, 'var','O2_tx',0.0174,10);
+model = setParam(model, 'var','O2_tx',0.01795,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00033398,10);
-model = setParam(model, 'var','PROTON_tx',0.0038902,10);
+model = setParam(model, 'var','PROTON_tx',0.0045842,10);
 model = setParam(model, 'var','Palmitate_biomass',-0.00018223,10);
 model = setParam(model, 'var','Raffinose_biomass',-0.00011519,10);
 model = setParam(model, 'var','Stachyose_biomass',-0.00027315,10);
-model = setParam(model, 'var','Starch_biomass',0.0018761,10);
+model = setParam(model, 'var','Starch_biomass',0.0016885,10);
 model = setParam(model, 'var','Stearate_biomass',-5.2174e-05,10);
 model = setParam(model, 'var','Verbascose_biomass',-1.2172e-06,10);
 model = setParam(model, 'var','sFRU_biomass',0.00015215,10);
 model = setParam(model, 'var','sGLC_biomass',9.7003e-05,10);
 model = setParam(model, 'var','sSUCROSE_biomass',0.00013894,10);
-model = setParam(model, 'var','GLN_tx',0.001771,10);
-model = setParam(model, 'var', 'CELLWALL_biomass',-0.00065308,10);
+model = setParam(model, 'var','GLN_tx',0.0020375,10);
+model = setParam(model, 'var','CELLWALL_biomass',-0.00053343,10);
 
 % Running Sampling with RAVEN
 goodRxns = [];
@@ -1408,6 +1445,12 @@ for i={'NADPH'}
     outNADPH_median = [outNADPH_median.rxns outNADPH_median.rxnNames outNADPH_median.rxnEqns outNADPH_median.fluxes];
 end
 writecell(outNADPH_median,'photon0_wr3_C2-C3_NADPH_median.xls');
+
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR3_C2-C3_FVA.csv');
 
 %% >>>>> For ΔC2-C3 in treatment WR 4 (x 1000)
 clear; % clean workspace
@@ -1507,25 +1550,25 @@ cell2table([num2cell(sol.x(ResultsFlx)), ListOfRxnFlxs])
 %% Running sampling
 % Adding a variation =10% of the exchanges rxns within each model
 model = setParam(model, 'var','Arachidate_biomass',-1.2113e-06,10);
-model = setParam(model, 'var','CO2_tx',-0.02098,10);
-model = setParam(model, 'var','Glycerol_biomass',-0.00028221,10);
-model = setParam(model, 'var','H2O_tx',-0.019857,10);
+model = setParam(model, 'var','CO2_tx',-0.021361,10);
+model = setParam(model, 'var','Glycerol_biomass',-0.00028033,10);
+model = setParam(model, 'var','H2O_tx',-0.020464,10);
 model = setParam(model, 'var','Linoleate_biomass',-0.00050047,10);
 model = setParam(model, 'var','Linolenate_biomass',-8.979e-05,10);
 model = setParam(model, 'var','Myristate_biomass',-1.6408e-08,10);
-model = setParam(model, 'var','O2_tx',0.014332,10);
+model = setParam(model, 'var','O2_tx',0.014624,10);
 model = setParam(model, 'var','Oleate_biomass',-0.00013892,10);
-model = setParam(model, 'var','PROTON_tx',0.0015401,10);
+model = setParam(model, 'var','PROTON_tx',0.0019337,10);
 model = setParam(model, 'var','Palmitate_biomass',-9.57e-05,10);
 model = setParam(model, 'var','Raffinose_biomass',-6.855e-05,10);
 model = setParam(model, 'var','Stachyose_biomass',-0.00020148,10);
-model = setParam(model, 'var','Starch_biomass',0.0015572,10);
+model = setParam(model, 'var','Starch_biomass',0.0014015,10);
 model = setParam(model, 'var','Stearate_biomass',-1.4882e-05,10);
 model = setParam(model, 'var','Verbascose_biomass',-2.2002e-06,10);
 model = setParam(model, 'var','sFRU_biomass',5.9267e-05,10);
 model = setParam(model, 'var','sGLC_biomass',5.7189e-05,10);
 model = setParam(model, 'var','sSUCROSE_biomass',0.00036506,10);
-model = setParam(model, 'var','GLN_tx',0.00087405,10);
+model = setParam(model, 'var','GLN_tx',0.0010056,10);
 
 % Running Sampling with RAVEN
 goodRxns = []; 
@@ -1607,5 +1650,8 @@ for i={'NADPH'}
 end
 writecell(outNADPH_median,'photon0_wr4_C2-C3_NADPH_median.xls');
 
-% save([data '/mat/alles_FBA_soybean.mat'])
-
+%% Running FVA
+[outFVA.minFlux, outFVA.maxFlux] = getAllowedBounds(model);
+outFVA.fluxSpan = outFVA.maxFlux - outFVA.minFlux;
+outFVA.rxns     = model.rxns;
+writetable(struct2table(outFVA),'photon_0_WR4_C2-C3_FVA.csv');

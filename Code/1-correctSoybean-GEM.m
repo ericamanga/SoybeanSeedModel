@@ -2,6 +2,10 @@
 % GENOME-SCALE METABOLIC MODEL (SoyGEM) USING THE RAVEN TOOLBOX 
 % Source: Moreira et al., 2019. Plant Physiology, Vol. 180, pp. 1912–1929.
 
+% Setting Raven solver
+% setRavenSolver('gurobi')
+% getpref('RAVEN','solver')
+
 % Define paths for model reconstruction.
 % clear
 clc; % clean command window
@@ -13,7 +17,7 @@ data = [root '/data/'];
 code = [root '/code/'];
 
 %% Correcting it to run into RAVEN
-modelSoy = importModel([data '/templateModels/File1_soyModel.xml'],false,false,true);
+modelSoy = importModel([data '/templateModels/File1_soyModel.xml'],false,true,true);
 
 modelSoy.id = 'gmx';
 modelSoy.name = 'gmx';
@@ -63,6 +67,7 @@ pos = find(strcmp('esculin',modelSoy.metNames));
 metID = modelSoy.mets(strcmp('esculin',modelSoy.metNames));
 comp = modelSoy.comps(modelSoy.metComps(pos));
 [num2cell(pos), metID, comp]
+
 % CPD-11682 does not exist on MetaCyc
 % Include coefficients from 1317 with 1704
 modelSoy.S(1704,:) = modelSoy.S(1704,:) + modelSoy.S(1317,:);
@@ -171,4 +176,3 @@ modelSoy = setParam(modelSoy,'obj','Photon_tx',1);
 exportModel(modelSoy,[data '/templateModels/SoyGEM_correct.xml']);
 exportToExcelFormat(modelSoy, [root '/scrap/SoyGEM_correct.xlsx']);
 save([data '/mat/SoyGEM_correct.mat'],'modelSoy')
-

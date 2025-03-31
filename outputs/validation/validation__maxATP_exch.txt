@@ -1,0 +1,10 @@
+EXCHANGE FLUXES:
+CO2_tx	(CO2_tx):	-9.08
+Cellulose_biomass	(Cellulose_biomass):	-3.2564
+Glycerol_biomass	(Glycerol_biomass):	-0.15
+H2O_tx	(H2O_tx):	-13.4186
+O2_tx	(O2_tx):	2.3898
+PROTON_tx	(PROTON_tx):	6.5494
+Photon_tx	(Photon_tx):	18.5444
+ASN_tx	(ASN_tx):	0.3297
+GLN_tx	(GLN_tx):	1.6475

@@ -33,3 +33,5 @@ NAD+[p] + Enzyme-N6-dihydrolipoyl-L-lysine_p[p] => H+[p] + NADH[p] + Enzyme-N6-l
 H+[p] + PYRUVATE_p[p] + Enzyme-N6-lipoyl-L-lysine_p[p] => CARBON-DIOXIDE_p[p] + Enzyme-N6-S-acetyldihydrolipoyl-L-lysine_p[p]	RXN0_1134_p				
 acetyl-CoA[p] + Enzyme-N6-dihydrolipoyl-L-lysine_p[p] <=> coenzyme A[p] + Enzyme-N6-S-acetyldihydrolipoyl-L-lysine_p[p]	RXN0_1133_p				
 NAD+[m] + (S)-malate[m] => NADH[m] + CO2[m] + pyruvate[m]	MALIC_NAD_RXN_m		
+GLY_m[m] + NAD+[m] + THF_m[m] => ammonium[m] + CO2[m] + METHYLENE-THF_m[m] + NADH[m]	GCVMULTI_RXN_m	GLYMA.05G168900 or GLYMA.07G262100 or GLYMA.09G004700 or GLYMA.14G094700 or GLYMA.15G109300 or GLYMA.17G012000 or GLYMA.17G226902 or GLYMA.17G228800		
+SER_m[m] + THF_m[m] <=> GLY_m[m] + METHYLENE-THF_m[m] + H2O[m]	GLYOHMETRANS_RXN_m	GLYMA.02G217100 or GLYMA.04G254300 or GLYMA.05G152100 or GLYMA.06G107800 or GLYMA.08G108900 or GLYMA.08G187800 or GLYMA.08G274400 or GLYMA.09G202000 or GLYMA.12G170300 or GLYMA.13G084900 or GLYMA.13G222300 or GLYMA.14G184500 or GLYMA.15G089900 or GLYMA.15G090000 or GLYMA.18G150000		
